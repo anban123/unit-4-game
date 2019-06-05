@@ -27,25 +27,27 @@
 
 //START OF GAME NOTES:
 
+//so jQuery will load first  ??
 $(document).ready(function () {
 
-
-
-//Create global variables
+//Global Variables
 var wins = 0;
 var losses = 0;
-// var crystalOneValue = 0;  //can I combine these?
-// var crystalTwoValue = 0;
-// var crystalThreeValue = 0;
-// var crystalFourValue = 0;
+        // var crystalOneValue = 0;  //can I combine these?
+        // var crystalTwoValue = 0;
+        // var crystalThreeValue = 0;
+        // var crystalFourValue = 0;
 var randomNumberNotShown = 0;
 
 //other possible variables
 var randomNumberShown = 0; //19-120
-var userGuess = 0;
+        // var userGuess = 0;
 var userTotalScore = 0;
+var crystalsTotalScore = ??;  // the crystal values added up
 
 
+
+//resets and gives my crystals values and displays their images
 function crystals() {
     var crystalImages = ["assets/images/pinkCrystal.png", "assets/images/redCrystal.png", "assets/images/galaxyCrystal.png", "assets/images/rainbowCrystal.png"];
     console.log("HI")
@@ -60,20 +62,47 @@ function crystals() {
 }
 crystals()
 
+//reset function
 function reset() {
     crystals();
-
+    userTotalScore = 0;
+    crystalsTotalScore = 0;
 }
 
+//putting jquery in html
+$("#user-total-score").text(userTotalScore)
+$("#goal-number").text(crystalsTotalScore)
+
+
+//on click event
 $(document).on("click", ".images", function() {
    console.log($(this).attr("crystalValue"))
    userTotalScore++;
 
+   if (userTotalScore == crystalsTotalScore) {   //if win - add win, reset crystals, reset userTotalScore
+       wins++;
+       crystals();
+       userTotalScore = 0;
+       crystalsTotalScore = 0;
+
+   }  else if (userTotalScore < crystalsTotalScore) {  //if still playing, 
+       userTotalScore=+;
+
+   } else if (userTotalScore > crystalsTotalScore) {   //if lose
+        losses++;
+        reset();
+   }
 
 
-  // console.log($(this))
 
+   
 }) 
+
+})
+
+
+
+
 //create click event
     //grab value from crystal clicked
     //add to player's score
@@ -83,4 +112,3 @@ $(document).on("click", ".images", function() {
             //create new random number
             //new values for crystals
 
-})
