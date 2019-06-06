@@ -33,17 +33,16 @@ $(document).ready(function () {
 //Global Variables
 var wins = 0;
 var losses = 0;
-var randomNumberNotShown = 0;
 
 //other possible variables
 var userTotalScore = 0;
-var crystalsTotalScore = 0;  // the crystal values added up 19-120 /random generate number between 19-120
+var crystalsTotalScore = Math.floor(Math.random() * (120-19 + 1) + 19);  // the crystal values added up 19-120 /random generate number between 19-120
 var crystalImages = ["assets/images/pinkCrystal.png", "assets/images/redCrystal.png", "assets/images/galaxyCrystal.png", "assets/images/rainbowCrystal.png"];
 
 //resets and gives my crystals values and displays their images
 function crystals() {
     $("#crystals").empty();     
-    console.log("HI")
+    console.log("Crystal Function")
    //new random number,
    for (var i = 0; i < crystalImages.length; i++) {
        var img = $("<img>");
@@ -59,12 +58,14 @@ crystals()
 function reset() {
     crystals();
     userTotalScore = 0;
-    crystalsTotalScore = 0;
+    crystalsTotalScore = Math.floor(Math.random() * (120-19 + 1) + 19); //Math.floor(Math.random()*(max-min+1)+min)
 }
 
 //putting jquery in html
-$("#user-total-score").text(userTotalScore)
-$("#goal-number").text(crystalsTotalScore)
+$("#user-total-score").text(userTotalScore);
+$("#goal-number").text(crystalsTotalScore);
+$("#wins").text(wins);
+$("#losses").text(losses);
 
 
 //on click event
@@ -96,12 +97,5 @@ $(document).on("click", ".images", function() {
 
 
 
-//create click event
-    //grab value from crystal clicked
-    //add to player's score
-    //test for win/loss
-        //if score === goal
-            //wins++
-            //create new random number
-            //new values for crystals
+
 
