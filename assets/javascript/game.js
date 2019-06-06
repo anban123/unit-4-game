@@ -33,23 +33,16 @@ $(document).ready(function () {
 //Global Variables
 var wins = 0;
 var losses = 0;
-        // var crystalOneValue = 0;  //can I combine these?
-        // var crystalTwoValue = 0;
-        // var crystalThreeValue = 0;
-        // var crystalFourValue = 0;
 var randomNumberNotShown = 0;
 
 //other possible variables
-var randomNumberShown = 0; //19-120
-        // var userGuess = 0;
 var userTotalScore = 0;
-var crystalsTotalScore = ??;  // the crystal values added up
-
-
+var crystalsTotalScore = 0;  // the crystal values added up 19-120 /random generate number between 19-120
+var crystalImages = ["assets/images/pinkCrystal.png", "assets/images/redCrystal.png", "assets/images/galaxyCrystal.png", "assets/images/rainbowCrystal.png"];
 
 //resets and gives my crystals values and displays their images
 function crystals() {
-    var crystalImages = ["assets/images/pinkCrystal.png", "assets/images/redCrystal.png", "assets/images/galaxyCrystal.png", "assets/images/rainbowCrystal.png"];
+    $("#crystals").empty();     
     console.log("HI")
    //new random number,
    for (var i = 0; i < crystalImages.length; i++) {
@@ -81,14 +74,14 @@ $(document).on("click", ".images", function() {
 
    if (userTotalScore == crystalsTotalScore) {   //if win - add win, reset crystals, reset userTotalScore
        wins++;
-       crystals();
-       userTotalScore = 0;
-       crystalsTotalScore = 0;
+       reset();
 
    }  else if (userTotalScore < crystalsTotalScore) {  //if still playing, 
-       userTotalScore=+;
+       userTotalScore+=$(this).attr("crystalValue")
 
-   } else if (userTotalScore > crystalsTotalScore) {   //if lose
+   } 
+   
+   if (userTotalScore > crystalsTotalScore) {   //if lose
         losses++;
         reset();
    }
