@@ -59,31 +59,27 @@ function reset() {
     crystals();
     userTotalScore = 0;
     crystalsTotalScore = Math.floor(Math.random() * (120-19 + 1) + 19); //Math.floor(Math.random()*(max-min+1)+min)
+    $("#goal-number").text(crystalsTotalScore);
 }
-
-//putting jquery in html
-$("#user-total-score").text(userTotalScore);
-$("#goal-number").text(crystalsTotalScore);
-$("#wins").text(wins);
-$("#losses").text(losses);
-
 
 //on click event
 $(document).on("click", ".images", function() {
-   console.log($(this).attr("crystalValue"))
-   userTotalScore++;
-
-   if (userTotalScore == crystalsTotalScore) {   //if win - add win, reset crystals, reset userTotalScore
-       wins++;
-       reset();
-
-   }  else if (userTotalScore < crystalsTotalScore) {  //if still playing, 
-       userTotalScore+=$(this).attr("crystalValue")
-
-   } 
-   
-   if (userTotalScore > crystalsTotalScore) {   //if lose
+    console.log($(this).attr("crystalValue"));
+    var score = $(this).attr("crystalValue");
+    userTotalScore += parseInt(score);
+    $("#user-total-score").text(userTotalScore);
+    
+    
+    if (userTotalScore === crystalsTotalScore) {   //if win - add win, reset crystals, reset userTotalScore
+        wins++;
+        $("#wins").text(wins);
+        alert("You Won!!!!!")
+        reset();
+        
+    }   else if (userTotalScore > crystalsTotalScore) {   //if lose
         losses++;
+        $("#losses").text(losses);
+        alert("You Lost!!!")
         reset();
    }
 
@@ -91,7 +87,7 @@ $(document).on("click", ".images", function() {
 
    
 }) 
-
+reset();
 })
 
 
