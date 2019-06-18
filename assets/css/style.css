@@ -3,3 +3,19 @@
 .images {
     width: 150px;
 }
+
+header {
+    background: lightpink;
+    text-align: center;
+    font-weight: 400;
+    font-size: 100px; 
+    /* font-family: 'Caveat', cursive; */
+    font-family: 'Pacifico', cursive;
+    /* font-family: 'Condiment', cursive;  */
+    padding-bottom: 20px;
+}
+
+div {
+    border: 1px solid black;
+    margin: 20px;
+}

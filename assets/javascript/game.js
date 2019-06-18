@@ -48,7 +48,7 @@ function crystals() {
        var img = $("<img>");
        img.attr("src", crystalImages[i]);
        img.addClass("images");
-       img.attr("crystalValue", Math.floor(Math.random() * 12) + 1) 
+       img.attr("crystalValue", Math.floor(Math.random() * 12) + 1); 
        $("#crystals").append(img);
    }
 }
